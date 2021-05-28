@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/gommon/log"
 )
 
-func main() {
+func main1() {
 	router, err := app.RoutesInit()
 	if err != nil {
 		log.Error(err)
