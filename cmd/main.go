@@ -13,6 +13,8 @@ func main() {
 		log.Error(err)
 		return
 	}
+	router.LoadHTMLGlob("cmd/templates/*")
+
 	fmt.Println("Run server http://localhost:8833")
 	router.Run(":8833")
 }
