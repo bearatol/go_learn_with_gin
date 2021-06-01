@@ -3,8 +3,8 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/bearatol/go_learn_with_gin/cmd/domain"
-	"github.com/bearatol/go_learn_with_gin/cmd/functions"
+	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/domain"
+	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/functions"
 	"github.com/gin-gonic/gin"
 )
 

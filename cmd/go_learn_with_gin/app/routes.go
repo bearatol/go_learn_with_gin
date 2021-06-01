@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/bearatol/go_learn_with_gin/cmd/handlers"
+	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/handlers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -9,13 +9,15 @@ func RoutesInit() (router *gin.Engine, err error) {
 	// return nil, errors.New("error server!!!")
 	r := gin.Default()
 
-	r.Static("/public", "cmd/public")
+	r.Static("/public", "cmd/go_learn_with_gin/public")
 	// r.StaticFS("/public", http.Dir("cmd/public"))
-	r.StaticFile("/favicon.ico", "cmd/public/images/favicon.ico")
+	r.StaticFile("/favicon.ico", "cmd/go_learn_with_gin/public/images/favicon.ico")
 
-	r.LoadHTMLGlob("cmd/templates/*")
+	r.LoadHTMLGlob("cmd/go_learn_with_gin/templates/*")
 
 	r.GET("/", handlers.MainPage)
+	r.GET("/auth/", handlers.AuthPage)
+	r.POST("/auth/", handlers.AuthPagePost)
 
 	r.GET("/ping/", handlers.PingPage)
 
