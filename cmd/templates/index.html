@@ -1,6 +1,21 @@
 {{ template "header.html" .}}
 
-<p>Hello world!</p>
+<h2>Hello world!</h2>
+
+<table border='1' cellspacing="">
+    <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Password</th>
+    </tr>
+    {{ range $key, $value := .users }}
+        <tr>
+            <td>{{ $value.ID }}</td>
+            <td>{{ $value.Login }}</td>
+            <td>{{ $value.Password }}</td>
+        </tr>
+    {{ end }}
+</table>
 
 {{ template "footer.html" .}}
 
