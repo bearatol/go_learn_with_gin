@@ -1,0 +1,35 @@
+{{ template "header.html" .}}
+
+{{if eq .isAuth "Y"}}
+    <div class="alert alert-success" role="alert">
+        Authorization is successful!
+    </div>
+{{else}}
+
+    {{if eq .isParams "N"}}
+        <div class="alert alert-danger" role="alert">
+            Some field is empty!
+        </div>
+    {{end}}
+    <form method="POST" action="/auth/">
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" id="login" name="LOGIN" aria-describedby="loginHelp">
+            <small id="loginHelp" class="form-text text-muted">Enter you login</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="PASSWORD" aria-describedby="passwordHelp">
+            <small id="passwordHelp" class="form-text text-muted">Enter you password</small>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="agreement" name="AGREEMENT">
+            <label class="form-check-label" for="agreement">Do you give your consent to the agreement of the
+                agreements?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{{end}}
+
+{{ template "footer.html" .}}
+

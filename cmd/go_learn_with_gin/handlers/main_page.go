@@ -9,7 +9,7 @@ import (
 )
 
 func MainPage(c *gin.Context) {
-	data := functions.Addmap(domain.GlobalGinParams(), gin.H{
+	data := functions.Addmap(domain.GlobalGinParams(c), gin.H{
 		"title": "Home Page",
 		"h1":    "Home Page h1",
 	})

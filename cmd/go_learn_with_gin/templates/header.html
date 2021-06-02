@@ -27,7 +27,11 @@
                         <a class="p-2 text-muted" href="#">Support</a>
                         <a class="p-2 text-muted" href="#">Pricing</a>
                     </nav>
-                    <a class="btn btn-outline-primary" href="/auth/">Sign up</a>
+                    {{if .authLogin}}
+                        <a class="btn btn-outline-primary" href="/user/">{{.authLogin}}</a>
+                    {{else}}
+                        <a class="btn btn-outline-primary" href="/auth/">Sign up</a>
+                    {{end}}
                 </div>
             </header>
             <main>
