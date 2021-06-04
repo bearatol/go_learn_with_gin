@@ -14,6 +14,6 @@ func main() {
 		return
 	}
 
-	fmt.Println("Run server http://localhost:8834")
-	router.Run(":8834")
+	fmt.Println("Run server http://localhost:8833")
+	router.Run(":8833")
 }

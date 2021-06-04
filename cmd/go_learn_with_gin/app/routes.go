@@ -15,15 +15,17 @@ func RoutesInit() (router *gin.Engine, err error) {
 
 	r.LoadHTMLGlob("cmd/go_learn_with_gin/templates/*")
 
+	r.NoRoute(handlers.Page404)
+
 	r.GET("/", handlers.MainPage)
 	r.GET("/auth/", handlers.AuthPage)
 	r.POST("/auth/", handlers.AuthPagePost)
 
+	r.GET("/user/:name/", handlers.UserPage)
+
+	// r.GET("/user/:name/*action", handlers.UserPage2)
+
 	r.GET("/ping/", handlers.PingPage)
-
-	r.GET("/user/:name", handlers.UserPage)
-
-	r.GET("/user/:name/*action", handlers.UserPage2)
 
 	return r, nil
 }

@@ -28,7 +28,7 @@
                         <a class="p-2 text-muted" href="#">Pricing</a>
                     </nav>
                     {{if .authLogin}}
-                        <a class="btn btn-outline-primary" href="/user/">{{.authLogin}}</a>
+                        <a class="btn btn-outline-primary" href="/user/{{.authLogin}}/">{{.authLogin}}</a>
                     {{else}}
                         <a class="btn btn-outline-primary" href="/auth/">Sign up</a>
                     {{end}}

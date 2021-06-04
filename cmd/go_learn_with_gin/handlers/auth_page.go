@@ -1,17 +1,22 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/domain"
 	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/functions"
 	"github.com/gin-gonic/gin"
+	"github.com/labstack/gommon/log"
 )
 
 func AuthPage(c *gin.Context) {
-	authLogin, _ := c.Cookie("authLogin")
-	fmt.Printf("authLogin: %v\n", authLogin)
+	if exit := c.Query("exit"); exit == "Y" {
+		c.SetCookie("authLogin", "", -1, "/", "localhost", false, true)
+		log.Info("cookie 'authLogin' was deleted")
+		c.Redirect(http.StatusMovedPermanently, "/")
+		c.Abort()
+		return
+	}
 
 	isParams := c.Query("isParams")
 	isAuth := c.Query("isAuth")
