@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/domain"
+	"github.com/bearatol/go_learn_with_gin/cmd/go_learn_with_gin/models"
 	"github.com/gin-gonic/gin"
 	"github.com/labstack/gommon/log"
 )
@@ -25,7 +25,7 @@ func AuthPagePost(c *gin.Context) {
 		return
 	}
 
-	users := domain.GetAllUsers()
+	users := models.GetAllUsers()
 	if users == nil {
 		log.Warn("user list is empty")
 		c.Redirect(http.StatusMovedPermanently, "/auth/")

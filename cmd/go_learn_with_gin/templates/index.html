@@ -1,21 +1,17 @@
 {{ template "header.html" .}}
 
-<h2>Hello world!</h2>
-
-<table border='1' cellspacing="">
-    <tr>
-        <th>ID</th>
-        <th>Login</th>
-        <th>Password</th>
-    </tr>
-    {{ range $key, $value := .users }}
-        <tr>
-            <td>{{ $value.ID }}</td>
-            <td>{{ $value.Login }}</td>
-            <td>{{ $value.Password }}</td>
-        </tr>
+<div class="list-content">
+    <div class="row">
+        <h2 class="col-md-12">List articles</h2>
+    </div>
+    {{ range $key, $value := .articles }}
+    <div class="row">
+        <div class="col-md-12">{{ $value.Text }}</div>
+        <div class="col-md-6">{{ $value.ID }}</div>
+        <div class="col-md-6">{{ $value.Date }}</div>
+    </div>
     {{ end }}
-</table>
+</div>
 
 {{ template "footer.html" .}}
 
